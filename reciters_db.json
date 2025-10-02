@@ -16,5 +16,41 @@
         "audio_url": "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3",
         "source": "https://quranicaudio.com/quran/5",
         "features": []
+    },
+    {
+        "name": "عبدالله عواد الجهني",
+        "audio_url": "https://download.quranicaudio.com/quran/abdullaah_3awwaad_al-juhaynee/113.mp3",
+        "source": "https://www.quranicaudio.com/quran/1",
+        "features": []
+    },
+    {
+        "name": "عبدالله بصفر",
+        "audio_url": "https://download.quranicaudio.com/quran/abdullaah_basfar/114.mp3",
+        "source": "https://www.quranicaudio.com/quran/2",
+        "features": []
+    },
+    {
+        "name": "أحمد نعينع",
+        "audio_url": "https://download.quranicaudio.com/quran/ahmad_nauina/113.mp3",
+        "source": "https://www.quranicaudio.com/quran/126",
+        "features": []
+    },
+    {
+        "name": "عبدالرحمن السديس",
+        "audio_url": "https://download.quranicaudio.com/quran/abdurrahmaan_as-sudays/114.mp3",
+        "source": "https://www.quranicaudio.com/quran/7",
+        "features": []
+    },
+    {
+        "name": "فارس عباد",
+        "audio_url": "https://download.quranicaudio.com/quran/fares/114.mp3",
+        "source": "https://www.quranicaudio.com/quran/14",
+        "features": []
+    },
+    {
+        "name": "أحمد العجمي",
+        "audio_url": "https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy/114.mp3",
+        "source": "https://www.quranicaudio.com/quran/19",
+        "features": []
     }
 ]
