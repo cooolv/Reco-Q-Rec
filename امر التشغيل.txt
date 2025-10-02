@@ -1,5 +1,5 @@
 امر التشغيل محليا
 streamlit run app.py
 
-امر الرفع الى جيت هيب
-git push -u origin main
+امر التحديث الى جيت هيب
+git add . && git commit -m "تحديث المشروع" && git push origin main
