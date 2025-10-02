@@ -11,7 +11,6 @@ DATA_FILE = "reciters_db.json"
 FEATURES_DIR = "features_cache"
 TEMP_AUDIO = "temp_upload.wav"
 
-# ====== إنشاء مجلد الميزات إذا لم يكن موجودًا ======
 os.makedirs(FEATURES_DIR, exist_ok=True)
 
 # ====== استخراج الميزات ======
@@ -41,16 +40,23 @@ def save_database(db_data):
         json.dump(db_data, f, ensure_ascii=False, indent=4)
 
 # ====== حفظ الميزات ======
-def save_features(name, features):
+def save_features(name, new_features):
     path = os.path.join(FEATURES_DIR, f"{name}.json")
+    if os.path.exists(path):
+        old_features = load_features(name)
+        old_features.append(new_features)
+        combined_features = old_features
+    else:
+        combined_features = [new_features]
+
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(features, f)
+        json.dump(combined_features, f)
 
 # ====== تحميل الميزات ======
 def load_features(name):
     path = os.path.join(FEATURES_DIR, f"{name}.json")
     if not os.path.exists(path):
-        return None
+        return []
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -62,7 +68,7 @@ def build_features_db():
     for entry in db_data:
         features = load_features(entry["name"])
         if not features:
-            st.info(f"تحميل ومعالجة: {entry['name']}")
+            st.info(f"جارٍ تحميل ومعالجة: {entry['name']}")
             try:
                 audio_path = os.path.join(FEATURES_DIR, f"{entry['name']}_temp.wav")
                 download_audio(entry["audio_url"], audio_path)
@@ -81,15 +87,36 @@ def recognize_reciter(test_features, features_db):
     best_match = None
     best_score = float("inf")
 
+    test_features = np.array(test_features).flatten()  # ضمان 1-D
+
     for entry in features_db:
-        score = cosine(test_features, entry["features"])
-        if score < best_score:
-            best_score = score
-            best_match = entry
+        for feature_set in entry["features"]:
+            feature_set = np.array(feature_set).flatten()  # ضمان 1-D
+            try:
+                score = cosine(test_features, feature_set)
+            except Exception as e:
+                st.warning(f"خطأ في المقارنة مع {entry['name']}: {e}")
+                continue
+            if score < best_score:
+                best_score = score
+                best_match = entry
 
     return best_match, best_score
 
 # ====== واجهة Streamlit ======
+st.set_page_config(page_title="تحديد قارئ القرآن", layout="wide")
+
+# CSS للاتجاه من اليمين لليسار
+st.markdown(
+    """
+    <style>
+    body { direction: rtl; }
+    .stButton button { float: right; }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("📖 تحديد قارئ القرآن الكريم")
 st.write("ارفع مقطع صوتي وسأحاول تحديد القارئ باستخدام قاعدة بيانات محلية.")
 
@@ -129,12 +156,19 @@ with st.form(key="add_reciter_form"):
                 features = extract_features(audio_path)
 
                 db_data = load_database()
-                db_data.append({
-                    "name": name,
-                    "audio_url": audio_url,
-                    "source": source,
-                    "features": features
-                })
+                existing = next((x for x in db_data if x["name"] == name), None)
+
+                if existing:
+                    existing["audio_url"] = audio_url
+                    existing["source"] = source
+                else:
+                    db_data.append({
+                        "name": name,
+                        "audio_url": audio_url,
+                        "source": source,
+                        "features": []
+                    })
+
                 save_database(db_data)
                 save_features(name, features)
 

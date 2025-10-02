@@ -1,77 +1,20 @@
 [
     {
-        "name": "عبد الباسط عبد الصمد",
-        "audio_url": "https://download.quranicaudio.com/quran/abdul_basit_murattal/001.mp3",
-        "source": "https://www.quranicaudio.com/reciter/Abdul_Basit_Abd_ussamad"
+        "name": "محمود خليل الحصري",
+        "audio_url": "https://download.quranicaudio.com/quran/mahmood_khaleel_al-husaree_iza3a/102.mp3",
+        "source": "https://quranicaudio.com/quran/122",
+        "features": []
     },
     {
-        "name": "مشاري العفاسي",
+        "name": "عبدالباسط عبد الصمد مرتل",
+        "audio_url": "https://download.quranicaudio.com/quran/abdul_basit_murattal/095.mp3",
+        "source": "https://quranicaudio.com/quran/37",
+        "features": []
+    },
+    {
+        "name": "مشاري بن راشد العفاسي",
         "audio_url": "https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3",
-        "source": "https://www.quranicaudio.com/reciter/Mishary_Rashid_Alafasy"
-    },
-    {
-        "name": "أحمد العجمي",
-        "audio_url": "https://download.quranicaudio.com/quran/ahmed_ibn_3ali_al-3ajamy/001.mp3",
-        "source": "https://www.quranicaudio.com/reciter/Ahmed_Al_Ajmi"
-    },
-    {
-        "name": "عبدالله بصفر",
-        "audio_url": "https://download.quranicaudio.com/quran/abdullaah_basfar/001.mp3",
-        "source": "https://quranicaudio.com/quran/2",
-        "features": [
-            -292.7380676269531,
-            135.35317993164062,
-            -21.962182998657227,
-            36.90851593017578,
-            19.283632278442383,
-            -6.54542350769043,
-            -39.4332160949707,
-            21.61644172668457,
-            -8.384583473205566,
-            -31.669225692749023,
-            -1.819915771484375,
-            -13.044727325439453,
-            -8.680606842041016
-        ]
-    },
-    {
-        "name": "أحمد نعينع",
-        "audio_url": "https://download.quranicaudio.com/quran/ahmad_nauina/001.mp3",
-        "source": "https://quranicaudio.com/quran/126",
-        "features": [
-            -342.8265075683594,
-            123.60706329345703,
-            -1.9720808267593384,
-            10.238661766052246,
-            9.844697952270508,
-            1.577399492263794,
-            -28.70064353942871,
-            -6.0814032554626465,
-            -6.86789608001709,
-            -9.002558708190918,
-            -20.786989212036133,
-            -7.2451934814453125,
-            -8.126949310302734
-        ]
-    },
-    {
-        "name": "أحمد نعينع",
-        "audio_url": "https://download.quranicaudio.com/quran/ahmad_nauina/113.mp3",
-        "source": "https://quranicaudio.com/quran/126",
-        "features": [
-            -310.0613708496094,
-            155.29153442382812,
-            -41.30266571044922,
-            -18.429121017456055,
-            -7.200870513916016,
-            -6.042842388153076,
-            -16.23356819152832,
-            -24.52589988708496,
-            -4.849193572998047,
-            -4.465705871582031,
-            -12.782504081726074,
-            -7.339892387390137,
-            -2.7534472942352295
-        ]
+        "source": "https://quranicaudio.com/quran/5",
+        "features": []
     }
 ]
